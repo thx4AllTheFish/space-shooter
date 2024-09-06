@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cslv0l0j4x8u0"]
+
+[ext_resource type="Texture2D" uid="uid://c8hy7rokmmuqb" path="res://Mini Pixel Pack 3/Projectiles/Enemy_projectile (16 x 16).png" id="1_avb50"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inu6j"]
+atlas = ExtResource("1_avb50")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbv2p"]
+atlas = ExtResource("1_avb50")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40tns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inu6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbv2p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="enemyprojectile" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_40tns")
+frame_progress = 0.430778

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://6ur66ray31w5"]
+
+[ext_resource type="Texture2D" uid="uid://cij45yd67auw0" path="res://fastforwardframes.png" id="1_bswuq"]
+[ext_resource type="Script" path="res://fastforward.gd" id="2_it0ni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxmtc"]
+atlas = ExtResource("1_bswuq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f33gt"]
+atlas = ExtResource("1_bswuq")
+region = Rect2(32, 0, 32, 32)
+
+[node name="fastforward" type="TextureButton"]
+z_index = 101
+offset_right = 32.0
+offset_bottom = 32.0
+focus_mode = 0
+texture_normal = SubResource("AtlasTexture_mxmtc")
+texture_pressed = SubResource("AtlasTexture_f33gt")
+script = ExtResource("2_it0ni")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://o6u6807ypi1q"]
+
+[ext_resource type="Texture2D" uid="uid://btsjybm1xkc2e" path="res://Mini Pixel Pack 3/Projectiles/gameoverscreen.png" id="1_bxtw5"]
+[ext_resource type="Texture2D" uid="uid://c5wwbbksnw18o" path="res://retry frame one.png" id="2_7htm4"]
+[ext_resource type="Texture2D" uid="uid://c7vh8uoarw6bs" path="res://retry frame two.png" id="3_8yjym"]
+
+[node name="gameover" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-29, -79)
+scale = Vector2(1.3875, 1.25937)
+texture = ExtResource("1_bxtw5")
+offset = Vector2(120, 160)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 49.0
+offset_top = 147.0
+offset_right = 177.0
+offset_bottom = 211.0
+texture_normal = ExtResource("2_7htm4")
+texture_pressed = ExtResource("3_8yjym")

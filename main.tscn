@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh30nwbfg6bmo"]
+
+[ext_resource type="Texture2D" uid="uid://7x8be46eanpd" path="res://Space_BG (2 frames) (64 x 64).png" id="1_7qhmi"]
+[ext_resource type="Script" path="res://main.gd" id="1_p4q15"]
+[ext_resource type="PackedScene" uid="uid://bduy65kycs4wm" path="res://playerspace.tscn" id="2_wj5vg"]
+[ext_resource type="PackedScene" uid="uid://6ur66ray31w5" path="res://fastforward.tscn" id="4_uyrl0"]
+
+[sub_resource type="Animation" id="Animation_jlnf5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 240, 320)]
+}
+
+[sub_resource type="Animation" id="Animation_qv1li"]
+resource_name = "scroll"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 240, 320), Rect2(0, -64, 240, 320)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pbmle"]
+_data = {
+"RESET": SubResource("Animation_jlnf5"),
+"scroll": SubResource("Animation_qv1li")
+}
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_p4q15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_7qhmi")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 320)
+
+[node name="player" parent="." instance=ExtResource("2_wj5vg")]
+position = Vector2(120, 240)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pbmle")
+}
+autoplay = "scroll"
+
+[node name="fastforward" parent="." instance=ExtResource("4_uyrl0")]
+offset_left = 13.0
+offset_top = 275.0
+offset_right = 45.0
+offset_bottom = 307.0
